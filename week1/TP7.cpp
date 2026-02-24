@@ -21,7 +21,10 @@ struct Book{
 };
 
 void insertBookInfo(Book books[], int size, int countStep){
-     for(int i = countStep; i < size; i++){
+    if(countStep >= size){
+        cout << "THE STORAGE IS FULL! "<< endl;
+    }else{
+        for(int i = countStep; i < size; i++){
         cout << "Book ID: ";
         cin >> books[i].id;
 
@@ -50,10 +53,12 @@ void insertBookInfo(Book books[], int size, int countStep){
         }
         break;
     }
+    }
+
 }
 
 
-
+// i used counstep for loop instead of size because if we loop through actual information rather then loop through empty arrays
 void displayBookBy_isbn(Book books[],int size, string isbn, int countStep){
     //inp -> copyInfo-> tyisbn -> loopInfo -> compare -> dis
 
@@ -68,6 +73,8 @@ void displayBookBy_isbn(Book books[],int size, string isbn, int countStep){
             }
             cout << "Published: " << books[i].publishedYear << endl;
             cout << "Price: " << books[i].price << "$ " << endl;
+        }else {
+            cout << "THIS ISBN DOESN'T EXIST!" << endl;
         }
     }
 }
