@@ -21,7 +21,7 @@ struct Book{
 };
 
 void insertBookInfo(Book books[], int size, int countStep){
-     for(int i = 0; i < size; i++){
+     for(int i = countStep; i < size; i++){
         cout << "Book ID: ";
         cin >> books[i].id;
 
@@ -57,7 +57,7 @@ void insertBookInfo(Book books[], int size, int countStep){
 void displayBookBy_isbn(Book books[],int size, string isbn, int countStep){
     //inp -> copyInfo-> tyisbn -> loopInfo -> compare -> dis
 
-    for(int i=0; i < size; i++){
+    for(int i = 0; i < countStep; i++){
         if(isbn == books[i].isbn){
             cout << "Title: " << books[i].title << endl;
             cout << "Id: " << books[i].id << endl;
@@ -73,7 +73,7 @@ void displayBookBy_isbn(Book books[],int size, string isbn, int countStep){
 }
 
 void displayAllBook(Book books[], int size){
-    for(int i = 1; i < size; i++){
+    for(int i = 0; i < size; i++){
         cout << "Title: " << books[i].title << endl;
         cout << "Id: " << books[i].id << endl;
 
@@ -82,8 +82,7 @@ void displayAllBook(Book books[], int size){
             cout << "Author: " << books[i].author[j] << endl;
         }
         cout << "Published: " << books[i].publishedYear << endl;
-        cout << "Price: " << books[i].price << "$ " << endl;
-        
+        cout << "Price: " << books[i].price << "$ " << endl << endl;
     
     }
 }
@@ -100,6 +99,7 @@ int main(){
 
         int feature;
         cin >> feature;
+        cout << endl;
 
         if(feature == 1){
             insertBookInfo(books, MAXIMUM_SIZE,countStep);
@@ -121,7 +121,8 @@ int main(){
 
 // debug
 
-//1. new input will replace the old input when we add another book info, so that mean we can only have 1 book info
+//1. new input will replace the old input when we add another book info, so that mean we can only have 1 book info (solved)
+
 //2. if author number is greater than 1, it'll display author more than 1 times. i want only one author to display. Ex: Author: SEAN Manutnithya, Pruce Banner
 //4. diplay all book info is also wrong of the debug number 1. , we have countStep for counting the information which we input.
 //3. didn't handle any invalid input yet.
