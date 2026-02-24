@@ -65,6 +65,10 @@ void insertBookInfo(Book books[], int size, int countStep){
 
             cout << "Price: ";
             cin >> books[i].price;
+            if(books[i].price < 0) {
+                cout << "INVALID PRICE" << endl;
+                break;
+            }
 
             cout << "Number of Author: ";
             cin >> books[i].authorCount;
