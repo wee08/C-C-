@@ -6,7 +6,6 @@
 #define MAX_AUTHOR 5
 
 using namespace std;
-
 struct Book{
     int id;
     int publishedYear;
@@ -16,8 +15,6 @@ struct Book{
 
     int authorCount;
     string author[MAX_AUTHOR];
-
-
 };
 
 int getCurrentYear(){
@@ -99,6 +96,7 @@ void displayBookBy_isbn(Book books[],int size, string isbn, int countStep){
             cout << "Price: " << books[i].price << "$ " << endl;
         }else {
             cout << "THIS ISBN DOESN'T EXIST!" << endl;
+            break;
         }
     }
 }
@@ -148,9 +146,9 @@ int main(){
             break;
         }   
     }
-    
+
     return 0;
-}
+} 
 
 // debug
 
