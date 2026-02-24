@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-
+#include <ctime>
 #define MAXIMUM_SIZE 5
 #define MAX_AUTHOR 5
 
@@ -20,43 +20,53 @@ struct Book{
 
 };
 
+int getCurrentYear(){
+    time_t current_time = time(NULL);
+    struct tm local_time = *localtime(&current_time);
+    int currentYear = local_time.tm_year + 1900;
+
+    return currentYear;
+}
+
 void insertBookInfo(Book books[], int size, int countStep){
     if(countStep >= size){
         cout << "THE STORAGE IS FULL! "<< endl;
     }else{
         for(int i = countStep; i < size; i++){
-        cout << "Book ID: ";
-        cin >> books[i].id;
+            cout << "Book ID: ";
+            cin >> books[i].id;
 
-        cout << "Book ISBN: ";
-        cin >> books[i].isbn;
+            cout << "Book ISBN: ";
+            cin >> books[i].isbn;
 
+            cin.ignore();
+            cout << "Book Title: ";
+            // cin >> books[i].title;
+            getline(cin, books[i].title);
 
-        cin.ignore();
-        cout << "Book Title: ";
-        // cin >> books[i].title;
-        getline(cin, books[i].title);
+            cout << "Published year: ";
+            cin >> books[i].publishedYear;
+            int py = books[i].publishedYear;
+            if(py < 0 || py > 2026) {
+                cout << "INVALID YEAR!" << endl;
+                break;
+            };
 
-        cout << "Published year: ";
-        cin >> books[i].publishedYear;
+            cout << "Price: ";
+            cin >> books[i].price;
 
-        cout << "Price: ";
-        cin >> books[i].price;
-
-        cout << "Number of Author: ";
-        cin >> books[i].authorCount;
-        cin.ignore(); // what is cin.ingore() :  ingored unessesary type of input from the back
-        for(int j = 0; j < books[i].authorCount; j++){
-            cout << "Author name: ";
-            getline(cin, books[i].author[j]); //what is getline : allow  user input with space;
-            // getline can be input with space: manut manut -> manut manut
+            cout << "Number of Author: ";
+            cin >> books[i].authorCount;
+            cin.ignore(); // what is cin.ingore() :  ingored unessesary type of input from the back
+            for(int j = 0; j < books[i].authorCount; j++){
+                cout << "Author name: ";
+                getline(cin, books[i].author[j]); //what is getline : allow  user input with space;
+                // getline can be input with space: manut manut -> manut manut
+            }
+            break;
         }
-        break;
     }
-    }
-
 }
-
 
 // i used counstep for loop instead of size because if we loop through actual information rather then loop through empty arrays
 void displayBookBy_isbn(Book books[],int size, string isbn, int countStep){
