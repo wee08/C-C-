@@ -33,8 +33,19 @@ void insertBookInfo(Book books[], int size, int countStep){
         cout << "THE STORAGE IS FULL! "<< endl;
     }else{
         for(int i = countStep; i < size; i++){
+            // 1st book.id -> idx 0, 2nd book.id -> idx 1, check previouse idx use coutStep
             cout << "Book ID: ";
             cin >> books[i].id;
+            bool isExisted = false;
+            int existedId = books[i].id;
+            for(int c = 0; c < countStep; c++){
+                if(existedId == books[c].id){
+                    cout << "THIS ID IS REALDY EXISTED!" << endl;
+                    isExisted = true;
+                    break;
+                }
+            }
+            if(isExisted)break;
 
             cout << "Book ISBN: ";
             cin >> books[i].isbn;
@@ -71,7 +82,6 @@ void insertBookInfo(Book books[], int size, int countStep){
 // i used counstep for loop instead of size because if we loop through actual information rather then loop through empty arrays
 void displayBookBy_isbn(Book books[],int size, string isbn, int countStep){
     //inp -> copyInfo-> tyisbn -> loopInfo -> compare -> dis
-
     for(int i = 0; i < countStep; i++){
         if(isbn == books[i].isbn){
             cout << "Title: " << books[i].title << endl;
@@ -93,7 +103,6 @@ void displayAllBook(Book books[], int size){
     for(int i = 0; i < size; i++){
         cout << "Title: " << books[i].title << endl;
         cout << "Id: " << books[i].id << endl;
-
         cout << "ISBN: " << books[i].isbn << endl;
         cout << "Author: ";
         for(int j=0; j<books[i].authorCount; j++){
@@ -104,7 +113,6 @@ void displayAllBook(Book books[], int size){
         }
         cout << endl << "Published: " << books[i].publishedYear << endl;
         cout << "Price: " << books[i].price << "$ " << endl << endl;
-    
     }
 }
 
@@ -144,6 +152,8 @@ int main(){
 
 //1. new input will replace the old input when we add another book info, so that mean we can only have 1 book info (solved)
 
-//2. if author number is greater than 1, it'll display author more than 1 times. i want only one author to display. Ex: Author: SEAN Manutnithya, Pruce Banner
-//4. diplay all book info is also wrong of the debug number 1. , we have countStep for counting the information which we input.
+//2. if author number is greater than 1, it'll display author more than 1 times. i want only one author to display. Ex: Author: SEAN Manutnithya, Pruce Banner. (solved)
+
+//4. diplay all book info is also wrong of the debug number 1. , we have countStep for counting the information which we input.(solved)
+
 //3. didn't handle any invalid input yet.
