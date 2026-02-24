@@ -78,10 +78,14 @@ void displayAllBook(Book books[], int size){
         cout << "Id: " << books[i].id << endl;
 
         cout << "ISBN: " << books[i].isbn << endl;
+        cout << "Author: ";
         for(int j=0; j<books[i].authorCount; j++){
-            cout << "Author: " << books[i].author[j] << endl;
+            cout << books[i].author[j];
+            if(j < books[i].authorCount - 1){
+                cout << ", ";
+            }
         }
-        cout << "Published: " << books[i].publishedYear << endl;
+        cout << endl << "Published: " << books[i].publishedYear << endl;
         cout << "Price: " << books[i].price << "$ " << endl << endl;
     
     }
