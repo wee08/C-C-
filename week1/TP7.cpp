@@ -159,3 +159,6 @@ int main(){
 //4. diplay all book info is also wrong of the debug number 1. , we have countStep for counting the information which we input.(solved)
 
 //3. didn't handle any invalid input yet. (solved) sitll have a few invalid condintions.
+
+//optional task
+// after input invalid information instead of breaking and stopping a whole operatoin, it should re-ask for invalid input
