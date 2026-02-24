@@ -160,4 +160,4 @@ int main(){
 
 //4. diplay all book info is also wrong of the debug number 1. , we have countStep for counting the information which we input.(solved)
 
-//3. didn't handle any invalid input yet.
+//3. didn't handle any invalid input yet. (solved) sitll have a few invalid condintions.
