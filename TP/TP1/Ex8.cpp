@@ -82,6 +82,17 @@ void CalcuateBMI(){
     }   
 
 }
+
+void Summation(int n){
+    cout << "Sum numbers from 1 to n, Execpt number division by 3." << endl;
+    int result = 0;
+    for(int l = 1; l <= n; l++){
+        if(l % 3 == 0) continue;
+        result += l;
+    }
+    cout << result << endl;
+}
+
 int main(){
     int feature;
     while (true)
@@ -90,27 +101,32 @@ int main(){
         cout << "(2) Convert fahrenhite to celsius." << endl;
         cout << "(3) Find root of quadratic equation." << endl;
         cout << "(4) Compute BMI." << endl;
-        cout << "(5) Sum numbers from 1 to n." << endl;
+        cout << "(5) Sum numbers from 1 to n, Execpt number division by 3." << endl;
+        cout << "(0) To Exit!" << endl ;
         cout << "Enter your choice:: " ;
         cin >> feature;
-        switch(feature){
-            case 1:
-                ConvertCelsiusToFahrenhite();
-                break;
-            case 2:
-                ConvertFahrenhiteToCelsius();
-                break;
-            case 3:
-                FindRootOfQuadraticEqs();
-                break;
-            case 4:
-                CalcuateBMI();
-                break;
-            default:
-                cout << "INVALID CHOICE...!" << endl;
-                break;
-        }
+        if(feature == 0){
+            break;
+        }else if(feature == 1){
+            ConvertCelsiusToFahrenhite();
+        }else if(feature == 2){
+            ConvertFahrenhiteToCelsius();
+        }else if(feature == 3){
+            FindRootOfQuadraticEqs();
+        }else if(feature == 4){
+            CalcuateBMI();
+        }else if(feature == 5){
+            int n;
+            cout << "n: ";
+            cin >> n;
+            if(n < 1){
+                cout << "INVALID...!" << endl;
+            }else{
+                Summation(n);
+            }
+        }else{
+            cout << "INVALID CHOICE...!" << endl;
+        }     
     }
-   
     return 0;
 }
