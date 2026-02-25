@@ -11,6 +11,13 @@ void ConvertCelsiusToFahrenhite(){
     cout << fah << " F" << endl;
 }
 
+void ConvertFahrenhiteToCelsius(){
+    cout << endl << "Convert fahrenhite to celsius." << endl;
+    int fah;
+    cin >> fah;
+    float cel = (fah - 32)*50.0 / 9.0;
+    cout  << cel << " C" << endl;
+}
 
 int main(){
 
@@ -24,6 +31,8 @@ int main(){
     cin >> feature;
     if(feature == 1){
         ConvertCelsiusToFahrenhite();
+    }else if(feature == 2){
+        ConvertFahrenhiteToCelsius();
     }
     
     return 0;
