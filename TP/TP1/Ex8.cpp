@@ -68,8 +68,8 @@ void CalcuateBMI(){
         cout << "INVALID...!" << endl;
         isValid = false;
     }
-    bmi = w / ( h * h );
     if(isValid){
+        bmi = w / ( h * h );
         if(bmi < 18.5){
             cout << "Underweight" << endl;
         }else if(bmi < 25){
@@ -83,7 +83,6 @@ void CalcuateBMI(){
 
 }
 int main(){
-
     int feature;
     while (true)
     {
@@ -106,6 +105,7 @@ int main(){
                 break;
             case 4:
                 CalcuateBMI();
+                break;
             default:
                 cout << "INVALID CHOICE...!" << endl;
                 break;
