@@ -28,7 +28,7 @@ void FindRootOfQuadraticEqs(){
     cin >> a >> b >> c;
     int delta = pow(b,2) -( 4 * a * c);
     float root_1,root_2;
-
+    
     if(delta > 0){
         cout << "Delta > 0" << endl;
         root_1 = ((-pow(b,2) + sqrt(delta))) /( 2*a);
@@ -50,6 +50,38 @@ void FindRootOfQuadraticEqs(){
     }
 }
 
+void CalcuateBMI(){
+    cout << "Compute BMI." << endl;
+    float h;
+    float bmi;
+    bool isValid = true;
+    cout << "Height in meter: ";
+    cin >> h;
+    if(h <=0){
+        cout << "INVALID...!" << endl;
+        isValid = false;
+    }
+    float w;
+    cout << "Weight in Kg: ";
+    cin >> w;
+    if(w <= 0){
+        cout << "INVALID...!" << endl;
+        isValid = false;
+    }
+    bmi = w / ( h * h );
+    if(isValid){
+        if(bmi < 18.5){
+            cout << "Underweight" << endl;
+        }else if(bmi < 25){
+            cout << "Normalweight" << endl;
+        }else if(bmi < 30){
+            cout << "Overweight" << endl;
+        }else{
+            cout << "obese" << endl;
+        }
+    }   
+
+}
 int main(){
 
     int feature;
@@ -72,6 +104,8 @@ int main(){
             case 3:
                 FindRootOfQuadraticEqs();
                 break;
+            case 4:
+                CalcuateBMI();
             default:
                 cout << "INVALID CHOICE...!" << endl;
                 break;
